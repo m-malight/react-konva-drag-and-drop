@@ -1,142 +1,109 @@
 import React, { useState, useRef, useEffect } from "react";
 import { GoGear } from "react-icons/go";
 import { VscBellDot } from "react-icons/vsc";
-import { CgProfile } from "react-icons/cg";
+import { CgProfile, CgUserlane } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
-import { MdAdd } from "react-icons/md";
+import { MdAdd, MdSpaceDashboard } from "react-icons/md";
 import { TbLayoutBoard, TbTable } from "react-icons/tb";
 import { LiaListAltSolid } from "react-icons/lia";
 import { SiClickhouse } from "react-icons/si";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { GoDotFill } from "react-icons/go";
-import { IoIosArrowDown } from "react-icons/io";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
-import Kanban from "./kanban";
+import { LuTimer } from "react-icons/lu";
+import { SlCalender } from "react-icons/sl";
+import { RiBarChart2Line } from "react-icons/ri";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import { GoQuestion } from "react-icons/go";
+import { IoExitOutline } from "react-icons/io5";
+import { GrAppsRounded } from "react-icons/gr";
+import Kanban from "./components/kanban";
+import Projects from "./components/projects";
+import TeamMembers from "./components/teammembers";
 
 export default function Index() {
   return (
     <div className="grid grid-cols-12 gap-1 h-[99vh] w-screen p-1">
-      <div className="border-2 border-red-300 col-span-1"></div>
-      <div className="grid grid-rows-12 col-span-2">
+      <div className="bg-white col-span-1 flex justify-center">
+        <div className="flex flex-col items-center h-[95%] p-2 border-2 w-[50%] border-gray-300 mt-2 rounded-md  bg-white justify-between">
+          <div className="bg-blue-600 p-2 rounded-md">
+            <CgUserlane color="white" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <GrAppsRounded color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4 border-l-2 border-l-blue-600">
+            <MdSpaceDashboard color="blue" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <LuTimer color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <SlCalender color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <RiBarChart2Line color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <IoChatbubblesOutline color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <GoQuestion color="gray" size={18} />
+          </div>
+          <div className="py-2 px-4">
+            <IoExitOutline color="gray" size={18} />
+          </div>
+        </div>
+      </div>
+      <div className="bg-white grid grid-rows-12 col-span-2">
         {/* Platforms */}
         <div className="h-[30vh] row-span-4">
           <h2 className="font-bold pl-1 text-gray-800 mb-1">Projects</h2>
           <div className="h-[87%] overflow-y-scroll">
-            <div className="bg-blue-800 flex justify-between items-center rounded-md py-3 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="white" className="mr-2" size={18} />
-                <h2 className="text-white font-bold text-xs">
-                  Piper Enterprise
-                </h2>
-              </div>
-              <BsThreeDotsVertical color="white" />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-3 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <h2 className="text-gray-800 font-bold text-xs">
-                  Web Platform
-                </h2>
-              </div>
-              <BsThreeDotsVertical color="gray" />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-3 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <h2 className="text-gray-800 font-bold text-xs">Mobile Loop</h2>
-              </div>
-              <BsThreeDotsVertical color="gray" />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-3 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <h2 className="text-gray-800 font-bold text-xs">
-                  Wiro Mobile App
-                </h2>
-              </div>
-              <BsThreeDotsVertical color="gray" />
-            </div>
+            <Projects
+              name={"Piper Enterprise"}
+              bg_color={"blue"}
+              color={"white"}
+            />
+            <Projects
+              name={"Web Platform"}
+              bg_color={"white"}
+              color={"gray"}
+              border_color={"gray"}
+            />
+            <Projects
+              name={"Mobile Loop"}
+              bg_color={"white"}
+              color={"gray"}
+              border_color={"gray"}
+            />
+            <Projects
+              name={"Wiro Mobile App"}
+              bg_color={"white"}
+              color={"gray"}
+              border_color={"gray"}
+            />
           </div>
         </div>
         {/* Team members */}
         <div className="h-[40vh] row-span-5">
           <h2 className="font-bold pl-1 text-gray-800">Team members</h2>
           <div className="h-[87%] overflow-y-scroll">
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-1 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <div>
-                  <h2 className="text-gray-600 font-bold">Piper Enterprise</h2>
-                  <div className="flex items-center">
-                    <GoDotFill size={10} color="green" />
-                    <span className="text-gray-800 font-bold text-xs">
-                      online - 08:43:23
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <IoIosArrowDown color="gray" size={20} />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-1 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <div>
-                  <h2 className="text-gray-600 font-bold">Piper Enterprise</h2>
-                  <div className="flex items-center">
-                    <GoDotFill size={10} color="green" />
-                    <span className="text-gray-800 font-bold text-xs">
-                      online - 08:43:23
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <IoIosArrowDown color="gray" size={20} />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-1 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <div>
-                  <h2 className="text-gray-600 font-bold">Piper Enterprise</h2>
-                  <div className="flex items-center">
-                    <GoDotFill size={10} color="green" />
-                    <span className="text-gray-800 font-bold text-xs">
-                      online - 08:43:23
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <IoIosArrowDown color="gray" size={20} />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-1 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <div>
-                  <h2 className="text-gray-600 font-bold">Piper Enterprise</h2>
-                  <div className="flex items-center">
-                    <GoDotFill size={10} color="green" />
-                    <span className="text-gray-800 font-bold text-xs">
-                      online - 08:43:23
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <IoIosArrowDown color="gray" size={20} />
-            </div>
-            <div className="border-2 border-gray-200 flex justify-between items-center rounded-md py-1 px-2 mx-2 mt-1">
-              <div className="flex items-center">
-                <CgProfile color="gray" className="mr-2" size={18} />
-                <div>
-                  <h2 className="text-gray-600 font-bold">Piper Enterprise</h2>
-                  <div className="flex items-center">
-                    <GoDotFill size={10} color="green" />
-                    <span className="text-gray-800 font-bold text-xs">
-                      online - 08:43:23
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <IoIosArrowDown color="gray" size={20} />
-            </div>
+            <TeamMembers name={"Koren Smith"} online={true} time={"08:43:23"} />
+            <TeamMembers
+              name={"Steve Mcconell"}
+              online={false}
+              time={"04:43:23"}
+            />
+            <TeamMembers
+              name={"Sarah Green"}
+              online={false}
+              time={"04:43:23"}
+            />
+            <TeamMembers name={"Bred Smith"} online={true} time={"08:43:23"} />
+            <TeamMembers
+              name={"Alice Cornell"}
+              online={true}
+              time={"08:43:23"}
+            />
           </div>
         </div>
         {/* Time */}
