@@ -5,7 +5,7 @@ export default function Index() {
   const [shape, setShape] = useState("Square");
   const [show, setShow] = useState(false);
   const [isdragging, setIsDragging] = useState(false);
-  const shape_size = useRef(null);
+  const canva_size = useRef(null);
 
   useEffect(() => {
     setShow(true);
@@ -18,6 +18,7 @@ export default function Index() {
       setIsDragging(false);
     }
   }
+
   return (
     <div className="h-screen p-2">
       {show ? (
@@ -38,21 +39,21 @@ export default function Index() {
             <option value="GStar">Star in Group</option>
           </select>
           <div
-            ref={shape_size}
+            ref={canva_size}
             className={`${
               isdragging ? "animate-border-blink" : "border-rose-500"
             } border-4 mt-[1.5vh] rounded-md h-[88.5vh]`}
           >
             <Shape
               shape={shape}
-              width={shape_size.current.clientWidth}
-              height={shape_size.current.clientHeight}
+              width={canva_size.current.clientWidth}
+              height={canva_size.current.clientHeight}
               onDrag={handleDrag}
             />
           </div>
         </>
       ) : (
-        <div ref={shape_size} className="h-[88.5vh]"></div>
+        <div ref={canva_size} className="h-[88.5vh]"></div>
       )}
     </div>
   );

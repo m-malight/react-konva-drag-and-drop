@@ -37,6 +37,7 @@ export default function App({ shape, width, height, onDrag }) {
     );
     onDrag(true);
   }
+
   function handleDragEnd() {
     setPositions(
       positions.map((position) => ({
@@ -57,6 +58,7 @@ export default function App({ shape, width, height, onDrag }) {
     );
     onDrag(true);
   }
+
   function handleGroupDragEnd() {
     setGroupPositions(
       groupPositions.map((position) => ({
@@ -66,6 +68,7 @@ export default function App({ shape, width, height, onDrag }) {
     );
     onDrag(false);
   }
+
   return (
     <Stage width={width} height={height}>
       <Layer>
